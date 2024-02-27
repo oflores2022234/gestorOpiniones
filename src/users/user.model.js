@@ -25,14 +25,6 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: [true, "Password is obligatory"],
     },
-    dateBirth: {
-        type: String,
-        required: [true, "Birth is obligatory"],
-    },
-    gender: {
-        type: String,
-        required: [true, "Gender is obligatory"],
-    },
     status: {
         type: Boolean,
         default: true,
