@@ -5,6 +5,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { dbConnection } from './mongo.js'
+import usersPath from '../src/users/user.routes.js'
 
 
 
@@ -12,10 +13,11 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
+        this.usersPath = '/opinionControl/v1/users'
 
         this.middlewares();
         this.conectarDB();
-       // this.routes();
+        this.routes();
     }
 
     async conectarDB(){
@@ -30,11 +32,11 @@ class Server{
         this.app.use(morgan('dev'));
     }
 
-    /*routes(){
-        this.app.use(this.authPath, authRoutes);
-        this.app.use(this.usuarioPath, userRoutes);
-        this.app.use(this.companyPath, companyRoutes);
-    }*/
+    routes(){
+        //this.app.use(this.authPath, authRoutes);
+        this.app.use(this.usersPath, usersPath);
+        
+    }
 
     listen(){
         this.app.listen(this.port, () => {
