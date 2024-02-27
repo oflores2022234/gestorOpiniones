@@ -1,0 +1,61 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "usersCollection",
+    "dateExported": "2024-02-27T22:51:40.103Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "1a6a0b94-dc61-4315-ad16-b5ff98d1fd06",
+            "colId": "a51b9706-a73b-4b1f-9fce-0a6409ea63d5",
+            "containerId": "",
+            "name": "usersPost",
+            "url": "http://localhost:8080/opinionControl/v1/users",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-27T20:22:01.010Z",
+            "modified": "2024-02-27T21:34:19.709Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Valeria Guitierrez\",\n  \"correo\": \"vGuirierreza@gmail.com\",\n  \"username\": \"valegut25a\",\n  \"password\": \"123123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "85021217-83fa-4b33-bf6f-485b58273cfc",
+            "colId": "a51b9706-a73b-4b1f-9fce-0a6409ea63d5",
+            "containerId": "",
+            "name": "getUsers",
+            "url": "http://localhost:8080/opinionControl/v1/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-27T20:45:57.747Z",
+            "modified": "2024-02-27T20:46:03.820Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "75ff8005-a18d-46d1-8c97-a62d607ca4bc",
+            "colId": "a51b9706-a73b-4b1f-9fce-0a6409ea63d5",
+            "containerId": "",
+            "name": "putUsers",
+            "url": "http://localhost:8080/opinionControl/v1/users/65de548282401318eddb3e66",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-02-27T22:11:31.162Z",
+            "modified": "2024-02-27T22:46:54.293Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Valeria Guitierrez\",\n  \"correo\": \"vGuirierreza@gmail.com\",\n  \"username\": \"pao_gt\",\n  \"passwordAnterior\": \"deAmbrocio\",\n  \"password\": \"deFlores\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
