@@ -1,0 +1,42 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "postingCollection",
+    "dateExported": "2024-02-28T23:03:36.985Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8d8afb68-95f6-42bc-b619-6155e1e1cf9e",
+            "colId": "60faa707-1baf-474f-85e4-8628d1798b42",
+            "containerId": "",
+            "name": "posting Post",
+            "url": "http://localhost:8080/opinionControl/v1/posting",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-28T22:41:21.433Z",
+            "modified": "2024-02-28T22:44:53.134Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"tittle\": \"Cumpleaños 18\",\n  \"category\": \"Recuerdos\",\n  \"pText\": \"Mis fotos de mi cumpleaños 18\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "69f46e33-1706-4fe5-8c89-1b96f8938408",
+            "colId": "60faa707-1baf-474f-85e4-8628d1798b42",
+            "containerId": "",
+            "name": "posting get",
+            "url": "http://localhost:8080/opinionControl/v1/posting",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-28T23:02:58.801Z",
+            "modified": "2024-02-28T23:03:05.306Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

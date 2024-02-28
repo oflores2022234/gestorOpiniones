@@ -2,7 +2,8 @@ import { Router } from "express";
 import { check } from "express-validator";
 
 import {
-postingPost
+postingPost,
+postingGet
 } from "./posting.controller.js";
 
 import { validateFields } from "../middlewares/validate-fields.js"
@@ -19,5 +20,7 @@ router.post(
 ],
 postingPost
 );
+
+router.get("/", postingGet);
 
 export default router;
