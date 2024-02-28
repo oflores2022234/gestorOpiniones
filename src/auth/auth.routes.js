@@ -9,7 +9,7 @@ const router = Router()
 router.post(
     '/login',
     [
-        check('correo_username', 'The email or username is obligatory').not().isEmpty(),
+        check('usuario', 'The email or username is obligatory').not().isEmpty(),
         check('password', 'The password is obligatory').not().isEmpty(),
         validateFields,
     ], login)

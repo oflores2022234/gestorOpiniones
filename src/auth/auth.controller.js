@@ -2,48 +2,44 @@ import bcryptjs from 'bcryptjs'
 import Usuario from '../users/user.model.js'
 import { generarJWT } from '../helpers/generate-jwt.js';
 
-export const login = async (req, res) =>{
-    const {correo, password, username} = req.body;
+export const login = async (req, res) => {
+    const { usuario, password } = req.body;
 
     try {
-        const userCorreo = await Usuario.findOne({ correo });
+        // Buscar usuario por correo electrónico
+        const user = await Usuario.findOne({ $or: [{ correo: usuario }, { username: usuario }] });
 
-        const userUsername = await Usuario.findOne({ username });
-
-        const usuario = userCorreo || userUsername;
-
-        if(!usuario){
+        if (!user) {
             return res.status(400).json({
-                msg: "Incorrect credential, Email or username don't exist in te DataBase",
+                msg: "Las credenciales son incorrectas, el correo electrónico o el nombre de usuario no existen en la base de datos",
             });
         }
 
-        if(!usuario.estado){
+        if (!user.estado) {
             return res.status(400).json({
-                msg: "User doen't exist in the DataBase",
+                msg: "El usuario no existe en la base de datos",
             });
         }
 
-        const validPassword = bcryptjs.compareSync(password, usuario.password);
-        if(!validPassword){
+        const validPassword = bcryptjs.compareSync(password, user.password);
+        if (!validPassword) {
             return res.status(400).json({
-                msg: "Password is incorrect",
+                msg: "La contraseña es incorrecta",
             });
         }
 
-        const token = await generarJWT(usuario.id);
+        const token = await generarJWT(user.id);
 
         res.status(200).json({
-            msg: "Nice Login!!",
-            usuario,
+            msg: "¡Inicio de sesión exitoso!",
+            usuario: user,
             token
         });
-        
+
     } catch (e) {
         console.log(e);
         res.status(500).json({
-            msg: "Contact with the administrador"
+            msg: "Contacta al administrador"
         });
     }
-
 }
