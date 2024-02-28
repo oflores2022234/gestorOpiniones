@@ -23,6 +23,7 @@ const PostingSchema = mongoose.Schema({
     },
 });
 
+
 PostingSchema.Schema.toJSON = function(){
     const { __v, _id, ...posting} = this.toObject();
     posting.uid = _id;
