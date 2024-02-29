@@ -3,8 +3,11 @@ import { check } from "express-validator";
 
 import {
 postingPost,
-postingGet
+postingGet,
+postingPut
 } from "./posting.controller.js";
+
+import { existPostById } from "../helpers/db-validators.js"
 
 import { validateFields } from "../middlewares/validate-fields.js"
 
@@ -22,5 +25,13 @@ postingPost
 );
 
 router.get("/", postingGet);
+
+router.put(
+    "/:id",
+    [
+        check("id", "Isn't not a ID valid").isMongoId(),
+        check("id").custom(existPostById),
+        validateFields,
+    ], postingPut)
 
 export default router;

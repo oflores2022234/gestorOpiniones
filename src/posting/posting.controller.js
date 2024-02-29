@@ -28,3 +28,17 @@ export const postingGet = async (req = request, res = response) => {
         posting
     });
 }
+
+export const postingPut = async (req, res = response) =>{
+    const { id } = req.params;
+    const {_id, ...resto} = req.body;
+
+    await Posting.findByIdAndUpdate(id, resto);
+
+    const posting = await Posting.findOne({_id: id});
+
+    res.status(200).json({
+        msg: 'Update Post',
+        posting
+    });
+}
