@@ -4,7 +4,8 @@ import { check } from "express-validator";
 import {
 postingPost,
 postingGet,
-postingPut
+postingPut,
+postingDelete
 } from "./posting.controller.js";
 
 import { existPostById } from "../helpers/db-validators.js"
@@ -33,5 +34,13 @@ router.put(
         check("id").custom(existPostById),
         validateFields,
     ], postingPut)
+
+router.delete(
+    "/:id",
+    [
+        check("id", "Incorrect Id").isMongoId(),
+        check("id").custom(existPostById),
+        validateFields
+    ], postingDelete);
 
 export default router;

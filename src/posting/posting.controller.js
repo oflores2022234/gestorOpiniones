@@ -42,3 +42,11 @@ export const postingPut = async (req, res = response) =>{
         posting
     });
 }
+
+export const postingDelete = async(req, res) =>{
+    const{id} = req.params;
+
+    const publication = await Posting.findByIdAndUpdate(id, {statuss: false});
+
+    res.status(200).json({msg:'Deleted publication', publication});
+}
