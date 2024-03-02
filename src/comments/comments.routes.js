@@ -1,20 +1,27 @@
-import mongoose, { mongo } from "mongoose";
+import { Router } from "express";
+import { check } from "express-validator";
 
-const CommentSchema = mongoose.Schema({
-    contenido: {
-        type: String,
-        required: true
-    },
-    usuario: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    publicacion: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Publication',
-        required: true
-    }
-});
+import {
+    commentPost,
+    getComments
+} from "./comments.controller.js";
 
-export default mongoose.model('Comment', CommentSchema);
+import { validateFields } from "../middlewares/validate-fields.js"
+import { validarJWT } from "../middlewares/validate-jwt.js"
+
+const router = Router();
+
+router.post(
+    "/add",
+    [
+        check("contenido", "The content is obligatory").not().isEmpty(), // Ajusta los mensajes de error según sea necesario
+        check("idPublicacion", "The publication ID is obligatory").not().isEmpty(),
+        validateFields,
+        validarJWT
+    ],
+    commentPost
+);
+
+router.get("/", getComments);
+
+export default router;
