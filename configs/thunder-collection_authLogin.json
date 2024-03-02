@@ -1,25 +1,25 @@
 {
     "client": "Thunder Client",
     "collectionName": "authLogin",
-    "dateExported": "2024-02-28T04:34:53.023Z",
+    "dateExported": "2024-03-02T13:42:21.115Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "3bdb46a8-d2fa-42ab-85dc-ed2567c2ec34",
-            "colId": "deb0d07e-2611-492f-a06f-3f78d0359e8f",
+            "_id": "e109265a-6a62-4c6d-ae02-d2e3e174785f",
+            "colId": "c8a2e9cd-c2b5-4f3b-b227-9105b29006df",
             "containerId": "",
             "name": "Login",
             "url": "http://localhost:8080/opinionControl/v1/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-02-28T04:02:16.745Z",
-            "modified": "2024-02-28T04:23:48.474Z",
+            "created": "2024-03-02T13:02:49.688Z",
+            "modified": "2024-03-02T13:33:53.010Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"usuario\": \"oflores\",\n  \"password\": \"123123\"\n}",
+                "raw": "{\n  \"usuario\": \"valegut25a\",\n  \"password\": \"123123\"\n}",
                 "form": []
             },
             "tests": []
