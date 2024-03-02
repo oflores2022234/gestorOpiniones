@@ -20,9 +20,9 @@ router.post(
     "/add",
     [
         
-        check("titulo", "El título es requerido").not().isEmpty(),
-        check("categoria", "La categoría es requerida").not().isEmpty(),
-        check("texto", "El texto es requerido").not().isEmpty(),
+        check("titulo", "The title is obligatory").not().isEmpty(),
+        check("categoria", "The category is obligatory").not().isEmpty(),
+        check("texto", "The principal text is obligatory").not().isEmpty(),
         validateFields,
         validarJWT
     ],
@@ -35,9 +35,9 @@ router.put(
     "/:id",
     [
         validarJWT,
-        check("titulo", "El título es requerido").not().isEmpty(),
-        check("categoria", "La categoría es requerida").not().isEmpty(),
-        check("texto", "El texto es requerido").not().isEmpty(),
+        check("titulo", "The title is obligatory").not().isEmpty(),
+        check("categoria", "The category is obligatory").not().isEmpty(),
+        check("texto", "The principal text is obligatory").not().isEmpty(),
         validateFields
     ],
     publicationsPut

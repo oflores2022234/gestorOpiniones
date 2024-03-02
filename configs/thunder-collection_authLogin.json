@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "authLogin",
-    "dateExported": "2024-03-02T13:42:21.115Z",
+    "dateExported": "2024-03-02T15:51:35.540Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-02T13:02:49.688Z",
-            "modified": "2024-03-02T13:33:53.010Z",
+            "modified": "2024-03-02T15:46:25.496Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"usuario\": \"valegut25a\",\n  \"password\": \"123123\"\n}",
+                "raw": "{\n  \"usuario\": \"juan11\",\n  \"password\": \"123123\"\n}",
                 "form": []
             },
             "tests": []
