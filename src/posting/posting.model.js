@@ -1,33 +1,27 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from 'mongoose';
 
-const PostingSchema = mongoose.Schema({
-    tittle: {
+const PublicacionSchema = mongoose.Schema({
+    titulo: {
         type: String,
-        required: [true, "Tittle is obligatory"],
+        required: true
     },
-    category: {
+    categoria: {
         type: String,
-        required: [true, "Category is obligatory"],
+        required: true
     },
-    pText: {
+    texto: {
         type: String,
-        required: [true, "Principal Text is obligatory"],
+        required: true
     },
-    coments: {
-        type: [Schema.Types.ObjectId],
-        ref: 'Coments',
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
-    statuss: {
-        type: Boolean,
-        default: true,
-    },
+    comentarios: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comentario'
+    }]
 });
 
-
-PostingSchema.methods.toJSON = function(){
-    const { __v, _id, ...posting} = this.toObject();
-    posting.uid = _id;
-    return posting;
-}
-
-export default mongoose.model('Posting', PostingSchema);
+export default mongoose.model('Publicacion', PublicacionSchema);

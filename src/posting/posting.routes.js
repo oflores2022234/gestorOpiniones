@@ -1,46 +1,52 @@
 import { Router } from "express";
 import { check } from "express-validator";
 
+
 import {
-postingPost,
-postingGet,
-postingPut,
-postingDelete
+publicationsPost,
+publicationsGet,
+publicationsPut,
+publicationsDelete
 } from "./posting.controller.js";
 
 import { existPostById } from "../helpers/db-validators.js"
 
 import { validateFields } from "../middlewares/validate-fields.js"
+import { validarJWT } from "../middlewares/validate-jwt.js"
 
 const router = Router();
 
 router.post(
-"/",
-[
-    check("tittle", "The tittle is obligatory").not().isEmpty(),
-    check("category", "The category is obligatory").not().isEmpty(),
-    check("pText", "The Principal Text is obligatory").not().isEmpty(),
-    validateFields,
-],
-postingPost
+    "/add",
+    [
+        
+        check("titulo", "El título es requerido").not().isEmpty(),
+        check("categoria", "La categoría es requerida").not().isEmpty(),
+        check("texto", "El texto es requerido").not().isEmpty(),
+        validateFields,
+        validarJWT
+    ],
+    publicationsPost
 );
 
-router.get("/", postingGet);
+router.get("/", publicationsGet);
 
 router.put(
     "/:id",
     [
-        check("id", "Isn't not a ID valid").isMongoId(),
-        check("id").custom(existPostById),
-        validateFields,
-    ], postingPut)
+        validarJWT,
+        check("titulo", "El título es requerido").not().isEmpty(),
+        check("categoria", "La categoría es requerida").not().isEmpty(),
+        check("texto", "El texto es requerido").not().isEmpty(),
+        validateFields
+    ],
+    publicationsPut
+);
 
 router.delete(
     "/:id",
-    [
-        check("id", "Incorrect Id").isMongoId(),
-        check("id").custom(existPostById),
-        validateFields
-    ], postingDelete);
+    validarJWT, 
+    publicationsDelete
+);
 
 export default router;
