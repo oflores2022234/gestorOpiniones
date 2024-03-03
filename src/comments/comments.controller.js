@@ -12,6 +12,7 @@ export const commentPost = async (req, res) => {
         if (!publication) {
             return res.status(404).json({ msg: 'Publicación no encontrada' });
         }
+        
 
         const comment = new Comment({
             contenido,
