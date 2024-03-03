@@ -3,7 +3,9 @@ import { check } from "express-validator";
 
 import {
     commentPost,
-    getComments
+    getComments,
+    commentPut,
+    commentDelete
 } from "./comments.controller.js";
 
 import { validateFields } from "../middlewares/validate-fields.js"
@@ -23,5 +25,21 @@ router.post(
 );
 
 router.get("/", getComments);
+
+router.put(
+    "/:id",
+    [
+        validarJWT,
+        check("contenido", "The content is obligatory").not().isEmpty(),
+        validateFields
+    ],
+    commentPut
+);
+
+router.delete(
+    "/:id",
+    validarJWT, 
+    commentDelete
+);
 
 export default router;
