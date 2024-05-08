@@ -1,13 +1,16 @@
 import mongoose from 'mongoose';
 
 const CommentSchema = mongoose.Schema({
-    contenido: {
+    nombres: {
         type: String,
         required: true
     },
-    usuario: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+    email:{
+        type: String,
+        required: true
+    },
+    contenido: {
+        type: String,
         required: true
     },
     publicacion: {
