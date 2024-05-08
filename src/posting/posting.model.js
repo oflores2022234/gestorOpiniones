@@ -13,15 +13,14 @@ const PublicacionSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    usuario: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
     comentarios: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comentario'
-    }]
+    }],
+    imagenUrl:{
+        type: String,
+        default: 'none'
+    },
 });
 
 export default mongoose.model('Publicacion', PublicacionSchema);
