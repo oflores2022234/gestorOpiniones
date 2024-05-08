@@ -19,8 +19,12 @@ const PublicacionSchema = mongoose.Schema({
     }],
     imagenUrl:{
         type: String,
-        default: 'none'
+        required: true
     },
+    estado: {
+        type: Boolean,
+        default: true
+    }
 });
 
 export default mongoose.model('Publicacion', PublicacionSchema);
