@@ -17,6 +17,10 @@ const CommentSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Publication',
         required: true
+    },
+    estado: {
+        type: Boolean,
+        default: true
     }
 });
 

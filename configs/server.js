@@ -16,7 +16,7 @@ class Server{
         this.port = process.env.PORT;
 
         this.postingPath = '/opinionControl/v1/posting'
-        his.commentPath = '/opinionControl/v1/comment'
+        this.commentPath = '/opinionControl/v1/comment'
 
         this.middlewares();
         this.conectarDB();

@@ -1,10 +1,8 @@
 import Comment from './comments.model.js';
-import User from '../users/user.model.js';
 import Publication from '../posting/posting.model.js';
 
 export const commentPost = async (req, res) => {
-    const user = req.usuario;
-    const { contenido, idPublicacion } = req.body;
+    const { nombres, email, contenido, idPublicacion } = req.body;
 
     try {
         const publication = await Publication.findById(idPublicacion);
@@ -14,27 +12,26 @@ export const commentPost = async (req, res) => {
         }
 
         const comment = new Comment({
+            nombres,
+            email,
             contenido,
-            usuario: user._id,
             publicacion: idPublicacion
         });
 
         await comment.save();
 
-        const usuario = await User.findById(user._id);
+        // Agregar el ID del comentario al arreglo de comentarios de la publicación
+        publication.comentarios.push(comment._id);
+        await publication.save();
 
         res.status(201).json({
             msg: 'Comentario agregado correctamente',
-            comment: {
-                ...comment.toObject(),
-                tituloPublicacion: publication.titulo,
-                usuario: usuario.correo
-            }
+            comment
         });
         
     } catch (error) {
         console.error('Error, cannot add comment', error);
-        res.status(500).json({ error: 'Error, cannor add comment'});
+        res.status(500).json({ error: 'Error, cannot add comment'});
     }
 
 };
@@ -42,18 +39,39 @@ export const commentPost = async (req, res) => {
 
 export const getComments = async (req, res) => {
     try {
-        const comment = await Comment.find().populate({
-            path: 'usuario', 
-            select: 'email _id' 
-        });
+        const comments = await Comment.find();
 
-        res.status(200).json(comment);
+        res.status(200).json(comments);
     } catch (error) {
-        console.error('Error to get post:', error);
-        res.status(500).json({ error: 'Error to get post' });
+        console.error('Error al obtener los comentarios:', error);
+        res.status(500).json({ error: 'Error al obtener los comentarios' });
     }
 };
+/*
+};
+export const publicationsGet = async (req = request, res = response) => {
+    const {limite, desde} = req.query;
+    const query = {estado: true};
+    
 
+    const [total, publication] = await Promise.all([
+        Publication.countDocuments(query),
+        Publication.find(query)
+        .skip(Number(desde))
+        .limit(Number(limite))
+    ]);
+
+    console.log(publication)
+
+    res.status(200).json({
+        total,
+        publication
+        
+    });
+};
+*/
+
+/*
 export const commentPut = async (req, res) => {
     const user = req.usuario;
     const commentId = req.params.id;
@@ -105,3 +123,4 @@ export const commentDelete = async (req, res) => {
     }
 };  
 
+*/
