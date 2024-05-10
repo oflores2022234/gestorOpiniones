@@ -17,6 +17,10 @@ const PublicacionSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comentario'
     }],
+    gitHub:{
+        type: String,
+        required: true
+    },
     imagenUrl:{
         type: String,
         required: true

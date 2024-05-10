@@ -23,6 +23,7 @@ router.post(
         check("titulo", "The title is obligatory").not().isEmpty(),
         check("categoria", "The category is obligatory").not().isEmpty(),
         check("texto", "The principal text is obligatory").not().isEmpty(),
+        check("gitHub", "the github is obligaroty").not().isEmpty(),
         check("imagenUrl", "The image is obligatory").not().isEmpty(),
         validateFields,
     ],

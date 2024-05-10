@@ -2,13 +2,14 @@ import Publication from './posting.model.js';
 
 export const publicationsPost = async (req, res) => {
 
-    const { titulo, categoria, texto, imagenUrl } = req.body;
+    const { titulo, categoria, texto, gitHub ,imagenUrl } = req.body;
 
     try {
         const publication = new Publication({
             titulo,
             categoria,
             texto,
+            gitHub,
             imagenUrl,
         });
 
