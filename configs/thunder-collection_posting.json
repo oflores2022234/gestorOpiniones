@@ -1,0 +1,40 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "posting",
+    "collectionId": "e94b23a9-6ed1-454d-867c-73cebbc7ed03",
+    "dateExported": "2024-05-13T21:35:22.994Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "130595bc-9764-4427-8ec6-91dac522c193",
+            "colId": "e94b23a9-6ed1-454d-867c-73cebbc7ed03",
+            "containerId": "",
+            "name": "post Posting",
+            "url": "http://192.168.31.113:8080/opinionControl/v1/posting/add",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-13T20:05:20.282Z",
+            "modified": "2024-05-13T20:24:18.703Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"titulo\": \"Blog React\",\n  \"categoria\": \"React\",\n  \"texto\":\"Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch\",\n  \"gitHub\": \"https://github.com/oflores2022234/React-Blog-2024.git\",\n  \"imagenUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6316607a-3dbc-46ee-98d2-fa51d68ae29e",
+            "colId": "e94b23a9-6ed1-454d-867c-73cebbc7ed03",
+            "containerId": "",
+            "name": "post Get",
+            "url": "http://192.168.31.113:8080/opinionControl/v1/posting",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-13T20:09:28.310Z",
+            "modified": "2024-05-13T21:23:36.559Z",
+            "headers": []
+        }
+    ],
+    "ref": "f1Kg_vSO_XBkx0Vxl09s_0wcsQvLrO3obOZLHlA4EBWkjMtxyd4TmnhBQSV1mG6OA8lws-F0_-J3KyiZ1s4vgg"
+}
