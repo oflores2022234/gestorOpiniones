@@ -47,6 +47,8 @@ export const getComments = async (req, res) => {
         res.status(500).json({ error: 'Error al obtener los comentarios' });
     }
 };
+
+
 /*
 };
 export const publicationsGet = async (req = request, res = response) => {
