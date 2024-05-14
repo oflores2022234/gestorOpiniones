@@ -1,0 +1,88 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "postingCollection",
+    "collectionId": "ad2c61c9-e91d-47c6-ad76-9e4947e7ab1c",
+    "dateExported": "2024-05-14T14:19:06.715Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "51805b3f-086d-4ca1-be04-568d9d2008bf",
+            "colId": "ad2c61c9-e91d-47c6-ad76-9e4947e7ab1c",
+            "containerId": "",
+            "name": "posting Post",
+            "url": "http://localhost:8080/opinionControl/v1/posting/add",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-08T15:36:40.494Z",
+            "modified": "2024-05-09T02:10:56.011Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzMjgxNWYyNjA1YmY1OWZjMzc4NDAiLCJpYXQiOjE3MTUxODI2MzYsImV4cCI6MTcxNTE4NjIzNn0.BnIntp4wnK0qhhjPXDixlZAOM82B-z5A0Vyq2BXwW7s"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"titulo\": \"Blog\",\n  \"categoria\": \"React\",\n  \"texto\": \"Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch Esta es una pequeña descripcion sobre Twitch\",\n  \"gitHub\": \"https://github.com/oflores2022234/React-Blog-2024.git\",\n  \"imagenUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "98b7dcb3-ce16-4a94-b069-e2fb13f9a4a6",
+            "colId": "ad2c61c9-e91d-47c6-ad76-9e4947e7ab1c",
+            "containerId": "",
+            "name": "posting get",
+            "url": "http://localhost:8080/opinionControl/v1/posting",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-08T15:36:40.495Z",
+            "modified": "2024-05-08T15:36:40.495Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "dc680707-c0d2-4ab8-bafa-51eec80c6bcd",
+            "colId": "ad2c61c9-e91d-47c6-ad76-9e4947e7ab1c",
+            "containerId": "",
+            "name": "posting Put",
+            "url": "http://localhost:8080/opinionControl/v1/posting/65e327ebf2605bf59fc37839",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-05-08T15:36:40.496Z",
+            "modified": "2024-05-08T15:36:40.496Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzMjNiZGJmZDJkNDNkM2E0NGFkZDQiLCJpYXQiOjE3MDkzODYxODAsImV4cCI6MTcwOTM4OTc4MH0.uckKoXHa4rNGYr091ngm8w20EEZA6a5obstuf2HX8f0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"titulo\": \"Mi viaje por miami\",\n  \"categoria\": \"WORLD\",\n  \"texto\": \"Este es mi primer viaje por miami\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94784598-7016-415e-aa31-0243dca61eba",
+            "colId": "ad2c61c9-e91d-47c6-ad76-9e4947e7ab1c",
+            "containerId": "",
+            "name": "posting Delete",
+            "url": "http://localhost:8080/opinionControl/v1/posting/663ba82f43bf961b800bd918",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-05-08T15:36:40.497Z",
+            "modified": "2024-05-11T03:32:30.249Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzMjNiZGJmZDJkNDNkM2E0NGFkZDQiLCJpYXQiOjE3MDkzODY0MzMsImV4cCI6MTcwOTM5MDAzM30.AnAUJLyFpGHxAWHZrOjb93x-IAJItumOwQLzZsJsmXs"
+                }
+            ]
+        }
+    ],
+    "ref": "aBOQAq-WO_sYnMjJIPQYuOX5VEE_cCx8gwt3gXHHI5zvvg5zmpfcnS6hYg0fXbc51m8jeGVbB3ErSSDroEVqPQ"
+}
