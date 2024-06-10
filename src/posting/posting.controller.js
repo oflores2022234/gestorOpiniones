@@ -1,54 +1,74 @@
-import jwt from 'jsonwebtoken';
 import Publication from './posting.model.js';
-import User from '../users/user.model.js';
 
 export const publicationsPost = async (req, res) => {
-    const user = req.usuario;
 
-    const { titulo, categoria, texto } = req.body;
+    const { titulo, categoria, texto, gitHub ,imagenUrl } = req.body;
 
     try {
         const publication = new Publication({
             titulo,
             categoria,
             texto,
-            usuario: user._id,
+            gitHub,
+            imagenUrl,
         });
 
         await publication.save();
+        console.log(publication)
 
-        const usuario = await User.findById(user._id);
 
         res.status(200).json({
             msg: 'Post added succesfully',
-            publication: {
-                ...publication.toObject(),
-                usuario: usuario.correo
-            }
+            publication
         });
     } catch (error) {
         console.error('Error to add post:', error);
         res.status(500).json({ error: 'Error to add post' });
     }
 };
+export const publicationsGet = async (req = request, res = response) => {
+    const {limite, desde} = req.query;
+    const query = {estado: true};
+    
 
-export const publicationsGet = async (req, res) => {
-    try {
-        const publications = await Publication.find().populate({
-            path: 'usuario', 
-            select: 'email _id' 
-        });
+    const [total, publication] = await Promise.all([
+        Publication.countDocuments(query),
+        Publication.find(query)
+        .skip(Number(desde))
+        .limit(Number(limite))
+    ]);
 
-        res.status(200).json(publications);
-    } catch (error) {
-        console.error('Error to get post:', error);
-        res.status(500).json({ error: 'Error to get post' });
-    }
+    /*console.log(publication)*/
+
+    res.status(200).json({
+        total,
+        publication
+        
+    });
 };
 
+/*
+export const companyGet = async (req = request, res = response) => {
+    const {limite, desde} = req.query;
+    const query = {estado: true};
+
+    const [total, companies] = await Promise.all([
+        Company.countDocuments(query),
+        Company.find(query)
+        .skip(Number(desde))
+        .limit(Number(limite))
+    ]);
+
+    res.status(200).json({
+        total,
+        companies
+    });
+}
+*/
 
 
 
+/*
 export const publicationsPut = async (req, res) => {
     const user = req.usuario;
     const publicationId = req.params.id;
@@ -101,4 +121,4 @@ export const publicationsDelete = async (req, res) => {
         res.status(500).json({ error: 'Error to delete post' });
     }
 };
-
+*/

@@ -13,15 +13,22 @@ const PublicacionSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    usuario: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
     comentarios: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comentario'
-    }]
+    }],
+    gitHub:{
+        type: String,
+        required: true
+    },
+    imagenUrl:{
+        type: String,
+        required: true
+    },
+    estado: {
+        type: Boolean,
+        default: true
+    }
 });
 
 export default mongoose.model('Publicacion', PublicacionSchema);
